@@ -15,11 +15,13 @@ app.use(express.json());
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: false // Disable SSL for local development
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 // JWT Secret
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this';
+const JWT_SECRET = process.env.JWT_SECRET ||d28b560ebf319a183d79dec07f1d8f36 ;
 
 // Middleware for authentication
 const authenticate = (req, res, next) => {
